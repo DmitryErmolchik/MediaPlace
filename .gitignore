@@ -7,3 +7,6 @@
 
 # GEdit temp files
 *.sh~
+
+# Target folder
+target
