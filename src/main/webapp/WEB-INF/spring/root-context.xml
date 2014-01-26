@@ -6,8 +6,8 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<bean class="com.dim4tech.mediaplace.bean.playercontext.PlayerContextImpl" id="mplayerContext">
 		<property name="mplayerFIFOPath" value="/tmp/mplayer-fifo" />
-		<property name="videoPath" value="/media/HDD" />
-		<!-- <property name="videoPath" value="/home/dimer/Видео" /> -->
+		<!-- <property name="videoPath" value="/media/HDD" /> -->
+		<property name="videoPath" value="/home/dimer/Видео" />
 		<property name="videoExtensions">
 			<array>
 				<value>mp4</value>

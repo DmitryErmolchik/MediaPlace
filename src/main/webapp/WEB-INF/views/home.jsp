@@ -5,22 +5,29 @@
 <%@ page session="false"%>
 <html>
 <head>
+<link rel="stylesheet" href="resources/css/style.css" type="text/css" />
 <title>Media place - Home</title>
 </head>
 <body>
 	<h1>Hello world!</h1>
-
-	<P>The time on the server is ${serverTime}.</P>
-	<div>${playMovieScriptPath}</div>
-
-	<div class="catalog">
-		<a href="${pageContext.request.contextPath}/catalog/">Catalog</a>
+	<div class="tile">
+		<P>The time on the server is ${serverTime}.</P>
+		<div>${playMovieScriptPath}</div>
 	</div>
-
-<%-- 	<c:forEach items="${listOfMediaFile}" var="mediaFile">
+	<div class="tile">
+		<div class="catalog">
+			<a href="${pageContext.request.contextPath}/catalog/">Catalog</a>
+		</div>
+	</div>
+	<%-- 	<c:forEach items="${listOfMediaFile}" var="mediaFile">
 		<a href="playMovie?movie=${mediaFile}">${mediaFile}</a>
 		<br>
 	</c:forEach> --%>
+
+
+
+	<div class="tile">Hello World!</div>
+
 
 </body>
 </html>
