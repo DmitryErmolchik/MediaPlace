@@ -10,24 +10,30 @@
 </head>
 <body>
 	<h1>Hello world!</h1>
-	<div class="tile">
-		<P>The time on the server is ${serverTime}.</P>
-		<div>${playMovieScriptPath}</div>
-	</div>
-	<div class="tile">
-		<div class="catalog">
-			<a href="${pageContext.request.contextPath}/catalog/">Catalog</a>
+	<div class="wrap">
+		<div class="box">
+			<div class="boxInner">
+				<P>The time on the server is ${serverTime}.</P>
+				<div>${playMovieScriptPath}</div>
+			</div>
 		</div>
-	</div>
-	<%-- 	<c:forEach items="${listOfMediaFile}" var="mediaFile">
+		<div class="box">
+			<div class="boxInner">
+				<div class="catalog">
+					<a href="${pageContext.request.contextPath}/catalog/">Catalog</a>
+				</div>
+			</div>
+		</div>
+		<%-- 	<c:forEach items="${listOfMediaFile}" var="mediaFile">
 		<a href="playMovie?movie=${mediaFile}">${mediaFile}</a>
 		<br>
 	</c:forEach> --%>
 
 
-
-	<div class="tile">Hello World!</div>
-
-
+		<div class="box">
+			<div class="boxInner">Hello World!</div>
+		</div>
+	</div>
+	
 </body>
 </html>
