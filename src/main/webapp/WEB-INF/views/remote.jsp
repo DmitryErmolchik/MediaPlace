@@ -6,17 +6,26 @@
 <html>
 <head>
 <title>Media place - Remote</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css" type="text/css" />
 </head>
 <body>
+	<div class="wrap">
+		<div class="box">
+			<div class="boxInner">
+
 	<div class="remote">
 		<c:forEach items="${listOfCommands}" var="command">
-			<a href="/mediaplace/remote?command=${command.name}">${command.name}</a>
+			<a href="${pageContext.request.contextPath}/remote?command=${command.name}">${command.name}</a>
 			<br>
 		</c:forEach>
 	</div>
 	<div>
 		<a href="${pageContext.request.contextPath}">Home</a>
 	</div>
+
+</div>
+</div>
+</div>
 
 </body>
 </html>

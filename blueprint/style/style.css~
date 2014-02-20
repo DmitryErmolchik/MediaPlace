@@ -165,7 +165,7 @@ MAIN NAVIGATION
 	padding: 0;
 	position: absolute;
 	left: 0;
-	top: 40px;
+	top: 150;
 	/*bottom: 0;*/
 	z-index: 100;
 	/* gradient */
