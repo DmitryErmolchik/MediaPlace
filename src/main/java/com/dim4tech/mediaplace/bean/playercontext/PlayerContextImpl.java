@@ -1,5 +1,6 @@
 package com.dim4tech.mediaplace.bean.playercontext;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -12,7 +13,7 @@ import com.dim4tech.mediaplace.domain.RemoteCommand;
 
 public class PlayerContextImpl implements PlayerContext, ServletContextAware {
 	private String mplayerFIFOPath;
-	private String videoPath;
+	private File videoPath;
 	private String[] videoExtensions;
 	private Map<String, RemoteCommand> remoteCommands;
 	private List<String> playerCommands;
@@ -31,18 +32,13 @@ public class PlayerContextImpl implements PlayerContext, ServletContextAware {
 	}
 
 	@Override
-	public String getVideoPath() {
+	public File getVideoPath() {
 		return videoPath;
 	}
 
 	@Override
-	public void setVideoPath(String videoPath) {
-		if (!videoPath.matches("/$")) {
-			this.videoPath = videoPath + '/';
-		}
-		else {
+	public void setVideoPath(File videoPath) {
 			this.videoPath = videoPath;
-		}
 	}
 
 	@Override

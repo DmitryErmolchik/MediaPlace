@@ -12,6 +12,7 @@
 		<org.springframework-version>4.0.0.RELEASE</org.springframework-version>
 		<org.aspectj-version>1.7.4</org.aspectj-version>
 		<org.slf4j-version>1.7.5</org.slf4j-version>
+		<jackson.version>1.9.13</jackson.version>
 	</properties>
 	<dependencies>
 		<!-- Spring -->
@@ -31,6 +32,13 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>${org.springframework-version}</version>
+		</dependency>
+
+		<!-- JSON Converter -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>${jackson.version}</version>
 		</dependency>
 
 		<!-- AspectJ -->

@@ -1,5 +1,6 @@
 package com.dim4tech.mediaplace.bean.playercontext;
 
+import java.io.File;
 import java.util.List;
 import java.util.Map;
 
@@ -10,8 +11,8 @@ import com.dim4tech.mediaplace.domain.RemoteCommand;
 public interface PlayerContext{
 	public String getMplayerFIFOPath();
 	public void setMplayerFIFOPath(String mplayerFIFOPath);
-	public String getVideoPath();
-	public void setVideoPath(String videoPath);
+	public File getVideoPath();
+	public void setVideoPath(File videoPath);
 	public String[] getVideoExtensions();
 	public void setVideoExtensions(String[] videoExtensions);
 	public Map<String, RemoteCommand> getRemoteCommands();

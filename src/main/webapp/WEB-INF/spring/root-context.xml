@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:context="http://www.springframework.org/schema/context"
+   xsi:schemaLocation="
+      http://www.springframework.org/schema/beans 
+      http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+      http://www.springframework.org/schema/context 
+      http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+      
+	<context:property-placeholder location="classpath*:properties/app.properties" file-encoding="UTF-8"/>
+
+	<bean id="videoPath" class="java.io.File">
+	  <constructor-arg index="0"
+	                   type="java.lang.String" 
+	                   value="${app.videoPath}" />    
+	</bean>
 
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<bean class="com.dim4tech.mediaplace.bean.playercontext.PlayerContextImpl" id="mplayerContext">
-		<!-- <property name="videoPath" value="/media/HDD" /> -->
-		<property name="videoPath" value="/home/dimer/Видео" />
+		<property name="videoPath" ref="videoPath" />
 		<property name="videoExtensions">
 			<array>
 				<value>mp4</value>

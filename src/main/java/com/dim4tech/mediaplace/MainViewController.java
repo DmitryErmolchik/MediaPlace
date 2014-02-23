@@ -37,7 +37,7 @@ public class MainViewController {
 		String formattedDate = dateFormat.format(date);
 		model.addAttribute("serverTime", formattedDate);
 
-		List<File> listOfMediaFile = (List<File>) FileUtils.listFiles(new File(mplayerContext.getVideoPath()), mplayerContext.getVideoExtensions()/*fileFilter*/, true);
+		List<File> listOfMediaFile = (List<File>) FileUtils.listFiles(new File(mplayerContext.getVideoPath().getAbsolutePath()), mplayerContext.getVideoExtensions()/*fileFilter*/, true);
 		Collections.sort(listOfMediaFile);
 		model.addAttribute("listOfMediaFile", listOfMediaFile);
 		model.addAttribute("playMovieScriptPath", mplayerContext.getServletContext().getRealPath("resources") + "/playMovie.sh");

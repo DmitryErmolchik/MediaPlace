@@ -32,6 +32,7 @@ body {
 	background: #0d1424 url(images/body-bg.jpg) no-repeat center top;
 	font: .81em/150% Arial, Helvetica, sans-serif;
 	color: #666;
+	min-width: 400px;
 }
 a {
 	color: #026acb;
@@ -96,7 +97,7 @@ input[type="search"]::-webkit-search-cancel-button {
 STRUCTURE
 *************************************************************************************/
 #pagewrap {
-	width: 980px;
+	width: 1250px;
 	margin: 0 auto;
 }
 
@@ -105,7 +106,7 @@ HEADER
 *************************************************************************************/
 #header {
 	position: relative;
-	height: 80px;
+	height: 30px;
 }
 
 /* site logo */
@@ -136,8 +137,11 @@ HEADER
 	width: 100%;
 }
 #searchform #s {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 	width: 100%;
-	float: right;
+	float: left;
 	background: #fff;
 	border: none;
 	padding: 6px 10px;
@@ -165,7 +169,7 @@ MAIN NAVIGATION
 	padding: 0;
 	position: absolute;
 	left: 0;
-	top: 40px;
+	top: 45px;
 	/*bottom: 0;*/
 	z-index: 100;
 	/* gradient */
@@ -215,9 +219,9 @@ CONTENT
 *************************************************************************************/
 #content {
 	background: #fff;
-	margin: 30px 0 30px;
+	margin: 20px 0 20px;
 	padding: 20px 35px;
-	width: 600px;
+	width: 880px;
 	float: left;
 	/* rounded corner */
 	-webkit-border-radius: 8px;
@@ -258,11 +262,11 @@ SIDEBAR
 #sidebar {
 	width: 280px;
 	float: right;
-	margin: 30px 0 30px;
+	margin: 20px 0 20px;
 }
 .widget {
 	background: #fff;
-	margin: 0 0 30px;
+	margin: 0 0 20px;
 	padding: 10px 20px;
 	/* rounded corner */
 	-webkit-border-radius: 8px;
@@ -287,6 +291,10 @@ SIDEBAR
 	list-style: none;
 	clear: both;
 	border-top: solid 1px #eee;
+}
+
+.navigationWidget {
+	font-weight: bold;
 }
 
 /* flickr widget */
