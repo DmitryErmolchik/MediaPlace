@@ -29,10 +29,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 GENERAL STYLING
 *************************************************************************************/
 body {
-	background: #0d1424 url(images/body-bg.jpg) no-repeat center top;
+	background: #0d1424 url(../images/body-bg.jpg) no-repeat center top;
 	font: .81em/150% Arial, Helvetica, sans-serif;
 	color: #666;
-	min-width: 400px;
+	min-width: 320px;
 }
 a {
 	color: #026acb;

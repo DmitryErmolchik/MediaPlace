@@ -80,36 +80,6 @@ public class CatalogController {
 		return catalog;
 	}
 	
-/*	@RequestMapping(method = RequestMethod.GET)
-	public String categories(Locale locale, Model model) {
-		List<String>categories = getCategories(mplayerContext.getVideoPath());
-		Collections.sort(categories);
-		model.addAttribute("categories", categories);
-		return "catalog";
-	}
-	
-	@RequestMapping(method = RequestMethod.GET, value = "/{category}/")
-	public ModelAndView explore(Locale locale, ModelAndView modelAndView, @PathVariable("category") String category) {
-		return getFilledCatalog(modelAndView, category, mplayerContext.getVideoPath().getPath() + '/' + category + '/');
-	}
-	
-	@RequestMapping(method = RequestMethod.GET, value = "/{category}", params = { "pathToExplore" })
-	public ModelAndView explore(Locale locale, ModelAndView modelAndView, 
-			@PathVariable("category") String category,
-			@RequestParam("pathToExplore") String pathToExplore) {
-		return getFilledCatalog(modelAndView, category, pathToExplore + '/');
-	}*/
-	
-	private List<String> getCategories(File dir) {
-		List<String> categoriesList = new ArrayList<String>();
-		for (File f : dir.listFiles()) {
-			if (f.isDirectory()) {
-				categoriesList.add(f.getPath().replace(mplayerContext.getVideoPath().getPath() + '/', "").replaceAll("^/", ""));
-			}
-		}
-		return categoriesList;
-	}
-	
 	private List<File> getDirectories(File dir) {
 		List<File> directoriesList = new ArrayList<File>();
 		for (File f : dir.listFiles()) {
@@ -128,24 +98,5 @@ public class CatalogController {
 			}
 		}
 		return filesList;
-	}
-	
-	private ModelAndView getFilledCatalog(ModelAndView modelAndView, String category, String path) {
-		List<String>categories = getCategories(mplayerContext.getVideoPath());
-		Collections.sort(categories);
-		modelAndView.addObject("categories", categories);
-		
-		modelAndView.setViewName("catalog");
-		modelAndView.addObject("category", category);
-		
-		File dirToExplore = new File(path);
-		List<File> directoriesList = getDirectories(dirToExplore);
-		List<File> filesList = getFiles(dirToExplore);
-
-		Collections.sort(directoriesList);
-		Collections.sort(filesList);
-		modelAndView.addObject("directoriesList", directoriesList);
-		modelAndView.addObject("filesList", filesList);
-		return modelAndView;
 	}
 }

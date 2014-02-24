@@ -19,6 +19,7 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<bean class="com.dim4tech.mediaplace.bean.playercontext.PlayerContextImpl" id="mplayerContext">
 		<property name="videoPath" ref="videoPath" />
+		<property name="mplayerFIFOPath" value="${app.mplayerFifoPath}"/>
 		<property name="videoExtensions">
 			<array>
 				<value>mp4</value>
@@ -30,12 +31,12 @@
 		</property>
 		<property name="remoteCommands">
 			<map>
-				<entry key="pause">
+				<entry key="Play/Pause">
 					<bean class="com.dim4tech.mediaplace.domain.RemoteCommand">
 						<property name="name" value="pause" />
 					</bean>
 				</entry>
-				<entry key="stop">
+				<entry key="Stop">
 					<bean class="com.dim4tech.mediaplace.domain.RemoteCommand">
 						<property name="name" value="stop" />
 						<property name="terminate" value="true" />

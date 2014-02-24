@@ -68,11 +68,11 @@ public class PlayMovieController {
 			List<String> sudoCommand = new ArrayList<String>();
 			logger.debug(mplayerContext.getServletContext().getRealPath("resources") + "/playMovie.sh");	
 			sudoCommand.add(mplayerContext.getServletContext().getRealPath("resources") + "/playMovie.sh");
-			sudoCommand.add(movie);
+			sudoCommand.add(mplayerContext.getVideoPath().getAbsolutePath() + '/' + movie);
 			
 			ProcessBuilder processBuilder = new ProcessBuilder();
 			processBuilder.command(sudoCommand);
-			Process playProcess = processBuilder.start();
+			processBuilder.start();
 			
 			//runtimeCommandLogger.log(playProcess, logger);
 

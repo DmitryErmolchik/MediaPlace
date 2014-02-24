@@ -1,5 +1,4 @@
-var catalogUrl = 'http://localhost:8080/mediaplace/catalog/';
-var contextPath = 'http://localhost:8080/mediaplace/';
+var catalogUrl = serverUrl + '/catalog';
 
 function clearCatalog() {
 	$('#ajaxCatalogCurrentPath').empty();
@@ -9,7 +8,7 @@ function clearCatalog() {
 }
 
 function getCatalog(path) {
-	var catalog = jQuery.getJSON(catalogUrl, {
+	jQuery.getJSON(catalogUrl, {
 		path : path
 	}).success(function(data) {
 
@@ -24,7 +23,7 @@ function getCatalog(path) {
 
 		if (data.files != null) {
 			$.each(data.files, function(index, val) {
-				files.push('<li><a href="' + contextPath + 'playMovie?movie=' + val.fullPath + '">' + val.baseName + '</a></li>');
+				files.push('<li><a href="javascript:playMovie(\'' + val.fullPath + '\')">' + val.baseName + '</a></li>');
 			});
 		}
 
@@ -33,13 +32,17 @@ function getCatalog(path) {
 		$('#ajaxCatalogCurrentPath').append(data.currentPath);
 		$('#ajaxCatalogDirectories').append(directories);
 		$('#ajaxCatalogFiles').append(files);
-		if (path != null) {
+		if (path != null && path != '') {
 			$('#ajaxCatalogNavigation').append('<a href="javascript:getCatalog(\'' + data.currentPath.substring(0, data.currentPath.lastIndexOf('/')) + '\')">Back</a>');
 		}
 		if (data.currentPath.lastIndexOf('/') >=0) {
-			$('#ajaxCatalogNavigation').append('<a href="javascript:getCatalog()">Home</a>');
+			$('#ajaxCatalogNavigation').append('&nbsp;&nbsp;&nbsp;<a href="javascript:getCatalog()">Home</a>');
 		}
 	});
+}
+
+function playMovie(movie) {
+	jQuery.get(serverUrl + 'playMovie', {movie: movie});
 }
 
 getCatalog();

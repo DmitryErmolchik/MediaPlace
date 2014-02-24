@@ -8,7 +8,8 @@
 <meta charset="utf-8">
 
 <!-- disable iPhone inital scale -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, user-scalable=0">
 
 <!-- main css -->
 <link rel="stylesheet"
@@ -36,7 +37,13 @@
 <script type="text/javascript"
 	src="http://code.jquery.com/jquery-2.1.0.js"></script>
 <script type="text/javascript"
+	src="${pageContext.request.contextPath}/resources/javascript/context.js"></script>
+<script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/javascript/catalogAJAX.js"></script>
+
+<!-- Plugins JS -->
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/resources/javascript/playerControllerAJAX.js"></script>
 
 <title>Media place</title>
 </head>
@@ -73,25 +80,28 @@
 
 
 
-		<aside id="sidebar"> <section class="widget">
-		<h4 class="widgettitle">Navigation</h4>
-		<ul>
-			<li><a href="javascript:history.back()" class="navigationWidget">Back</a></li>
-			<li><a href="${pageContext.request.contextPath}"
-				class="navigationWidget">Home</a></li>
-		</ul>
-		</section> <!-- /.widget --> <section class="widget">
-		<h4 class="widgettitle">System info</h4>
-		<ul>
-			<li>CPU: 15%</li>
-			<li>RAM: 3Gb / 16Gb</li>
-			<li>Space: 10Gb / 200Gb</li>
-		</ul>
-		</section> <!-- /.widget --> <section class="widget clearfix">
-		<h4 class="widgettitle">Flickr</h4>
-		<script type="text/javascript"
-			src="http://www.flickr.com/badge_code_v2.gne?count=8.&display=latest&size=s&layout=x&source=user&user=52839779@N02"></script>
-		</section> <!-- /.widget --> </aside>
+		<aside id="sidebar"> 
+			<section class="widget">
+				<h4 class="widgettitle">Player control</h4>
+				<ul id="ajaxPlayerControl"></ul>
+			</section>
+			<!-- /.widget --> 
+			<section class="widget">
+				<h4 class="widgettitle">System info</h4>
+				<ul>
+					<li>CPU: 15%</li>
+					<li>RAM: 3Gb / 16Gb</li>
+					<li>Space: 10Gb / 200Gb</li>
+				</ul>
+			</section> 
+			<!-- /.widget -->
+			<section class="widget clearfix">
+				<h4 class="widgettitle">Flickr</h4>
+				<script type="text/javascript"
+					src="http://www.flickr.com/badge_code_v2.gne?count=8.&display=latest&size=s&layout=x&source=user&user=52839779@N02"></script>
+			</section>
+			<!-- /.widget --> 
+		</aside>
 		<!-- /#sidebar -->
 
 		<footer id="footer">
