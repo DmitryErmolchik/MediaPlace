@@ -1,4 +1,4 @@
-var catalogUrl = serverUrl + '/catalog';
+var catalogUrl = serverUrl + 'catalog';
 
 function clearCatalog() {
 	$('#ajaxCatalogCurrentPath').empty();
@@ -33,7 +33,7 @@ function getCatalog(path) {
 		$('#ajaxCatalogDirectories').append(directories);
 		$('#ajaxCatalogFiles').append(files);
 		if (path != null && path != '') {
-			$('#ajaxCatalogNavigation').append('<a href="javascript:getCatalog(\'' + data.currentPath.substring(0, data.currentPath.lastIndexOf('/')) + '\')">Back</a>');
+			$('#ajaxCatalogNavigation').append('<a href="javascript:getCatalog(\'' + data.backLink + '\')">Back</a>');
 		}
 		if (data.currentPath.lastIndexOf('/') >=0) {
 			$('#ajaxCatalogNavigation').append('&nbsp;&nbsp;&nbsp;<a href="javascript:getCatalog()">Home</a>');
