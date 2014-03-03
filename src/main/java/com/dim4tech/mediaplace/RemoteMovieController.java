@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Locale;
 import java.util.Map;
 
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,11 +35,19 @@ public class RemoteMovieController {
 	@RequestMapping(method = RequestMethod.GET, params = { "command" })
 	public void SendCommand(Locale locale, Model model,
 			@RequestParam(value = "command") String command) {
-		String[] remoteCommand = { "sh", "-c",
-				"echo " + command + " > " + mplayerContext.getMplayerFIFOPath() };
-		logger.debug("echo \"" + command + "\" > " + mplayerContext.getMplayerFIFOPath());
+		
+		RemoteCommand remoteCommand = mplayerContext.getRemoteCommands().get(command);
+		
+		String parameters = "";
+		if (mplayerContext.getRemoteCommands().get(command).getParameters() != null) {
+			parameters = " " + StringUtils.join(remoteCommand.getParameters(), ' ');
+		}
+		
+		String[] fireCommand = { "sh", "-c",
+				"echo " + remoteCommand.getName() + parameters + " > " + mplayerContext.getMplayerFIFOPath() };
+		logger.debug("echo \"" + remoteCommand.getName() + parameters + "\" > " + mplayerContext.getMplayerFIFOPath());
 		try {
-			Process playProcess = Runtime.getRuntime().exec(remoteCommand);
+			Process playProcess = Runtime.getRuntime().exec(fireCommand);
 		} catch (IOException e) {
 			logger.error(e.getLocalizedMessage());
 		}

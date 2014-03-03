@@ -31,6 +31,17 @@
 		</property>
 		<property name="remoteCommands">
 			<map>
+				<entry key="Reverse">
+					<bean class="com.dim4tech.mediaplace.domain.RemoteCommand">
+						<property name="name" value="seek" />
+						<property name="parameters">
+							<list value-type="java.lang.String">
+								<value>-25</value>
+								<value>0</value>
+							</list>
+						</property>
+					</bean>
+				</entry>
 				<entry key="Play/Pause">
 					<bean class="com.dim4tech.mediaplace.domain.RemoteCommand">
 						<property name="name" value="pause" />
@@ -40,6 +51,17 @@
 					<bean class="com.dim4tech.mediaplace.domain.RemoteCommand">
 						<property name="name" value="stop" />
 						<property name="terminate" value="true" />
+					</bean>
+				</entry>
+				<entry key="Forward">
+					<bean class="com.dim4tech.mediaplace.domain.RemoteCommand">
+						<property name="name" value="seek" />
+						<property name="parameters">
+							<list value-type="java.lang.String">
+								<value>30</value>
+								<value>0</value>
+							</list>
+						</property>
 					</bean>
 				</entry>
 			</map>

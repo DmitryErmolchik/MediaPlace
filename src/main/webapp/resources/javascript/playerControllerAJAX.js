@@ -12,7 +12,7 @@ function loadRemoteCommands() {
 		var commands = [];
 		
 		$.each(data, function(index, value) {
-			commands.push('<li><a href="javascript:fireCommand(\'' + value.name + '\')">' + index + '</a></li>')
+			commands.push('<li><a href="javascript:fireCommand(\'' + index + '\')">' + index + '</a></li>')
 		})
 		
 		$('#ajaxPlayerControl').append(commands);
